@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Portfolio</title>
+    <link rel="stylesheet" href="porto.css">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <script src="porto.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   
+</head>
+<body>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const scrollElements = document.querySelectorAll(".scroll-fade");
+        
+            const scrollHandler = () => {
+                scrollElements.forEach((el) => {
+                    const rect = el.getBoundingClientRect();
+                    if (rect.top < window.innerHeight - 100) {
+                        el.classList.add("visible");
+                    }
+                });
+            };
+        
+            window.addEventListener("scroll", scrollHandler);
+            scrollHandler(); // Untuk memeriksa saat halaman dimuat
+        });
+        </script>
+        
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand text-white" href="#">Kimi Profile</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item-home"><a class="nav-link" href="#about">About Me</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projek">Projek</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">skills</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let title = document.querySelector(".projek h4"); // Pilih elemen judul
+        let originalText = title.textContent; // Simpan teks asli
+
+        function scrambleText(element, text, interval = 50, delay = 100) {
+            const chars = "YROTSIHTCEJORPYM";
+            let scrambled = text.split("").map(() => chars[Math.floor(Math.random() * chars.length)]);
+            let iterations = 0;
+
+            function updateText() {
+                if (iterations < text.length) {
+                    scrambled[iterations] = text[iterations]; // Ubah huruf satu per satu ke yang benar
+                    element.textContent = scrambled.join("");
+                    iterations++;
+                    setTimeout(updateText, interval);
+                }
+            }
+
+            element.textContent = scrambled.join("");
+            setTimeout(updateText, delay);
+        }
+
+        function startScramble() {
+            scrambleText(title, originalText);
+        }
+
+        // Cek apakah efek scrambling sudah pernah terjadi dalam sesi ini
+        if (!sessionStorage.getItem("titleScrambled")) {
+            startScramble();
+            sessionStorage.setItem("titleScrambled", "true"); // Tandai bahwa shuffle sudah terjadi
+        }
+
+        // Saat hover, langsung tampilkan teks asli
+        title.addEventListener("mouseenter", function () {
+            title.textContent = originalText;
+        });
+
+        // Saat hover dilepas, scrambling lagi
+        title.addEventListener("mouseleave", startScramble);
+    });
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let titles = document.querySelectorAll(".hero-content h1"); // Pilih semua h1 dalam hero
+        const chars = "ABCDEFGH";
+        
+        function scrambleText(element, text, speed = 50) {
+            let scrambled = Array.from(text, () => chars[Math.floor(Math.random() * chars.length)]); // Buat teks acak
+            let iterations = 0;
+
+            let scrambleInterval = setInterval(() => {
+                scrambled[iterations] = text[iterations]; // Ganti huruf satu per satu
+                element.textContent = scrambled.join("");
+
+                iterations++;
+                if (iterations >= text.length) {
+                    clearInterval(scrambleInterval); // Stop scrambling jika selesai
+                }
+            }, speed);
+        }
+
+        // Terapkan scrambling ke setiap h1 dalam hero-content
+        titles.forEach(title => {
+            let originalText = title.textContent; // Simpan teks asli
+            scrambleText(title, originalText);
+        });
+    });
+</script>
+
+    <header id="home" class="hero">
+        <div class="overlay"></div>
+        <div class="hero-content">
+            <h1 class="nama1">HI! </h1>
+            <h1 class="nama">I AM ALMAALIKA</h1> <h1><br> KIMI </h1> 
+           
+             <h4 class="lead">"I belive the future belongs to those who believe in the beauty of their dreams."</h4>
+             <div class="hr"></div><br>
+            <!--<img class="gif" src="Animation - 1740978678849.gif"></img>-->
+           
+            <a href="#projek" class="scroll-down"></a>
+        </div>
+    </header>
+
+    <!-- pageeeeee duaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-->
+    <div class="all"></div>
+    <section class="about" id="about">
+       <br><h4 class="meet">Meet KIMI</h4>
+        <img src="img/INI BG.gif" alt="ava" class="avatar">
+        <br><h6 class="desc"> Hi, I'm Almaalika Kimi and I am currently a student in Bandung vocational high school as a programmer in software engineering. <br>I have a strong interest in website development, and I enjoy working on group projects that allow me to improve my skills through html, css, javascript and other programming languages. I am also learning about mysql as a database in many projects. <br><br><br>Let's Get Close Too Each Other!!</h6>
+
+        <h6></h6>
+
+    <!-- BUAT WAAAAAAA-->
+        <br><br><a href="https://wa.me/089530183579" target="_blank">
+            <img src="img/wa pink.jpg" alt="Chat via WhatsApp" class="WhatsApp">
+        </a>
+    
+    <!-- BUAT IGGGGGG-->    
+    <a href="https://instagram.com/kym.bapp" target="_blank">
+        <img src="img/ig pink logo.png" alt="Instagram" class="instagram">
+    </a>
+    
+    <!--BUTTT EMAILLLL-->
+    <a href="mailto:almaalikakimi.a@gmail.com">
+        <img src="img/gmail pink logo.png" alt="Email" class="email">
+    </a>
+ </section>
+
+ <!--PAGE TIGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA-->
+
+
+ 
+ <section class="projek" id="projek">
+    <h4 class="tittleprojek">MY PROJECT HISTORY</h4>
+
+    <div class="projek-container">
+        <div class="projek-item">
+            <img src="img/getede.png" alt="Projek 1" class="all">
+            <h4 class="gtd">Girls Tech Day</h4>
+            <h7>This was a city-wide event for girls where we were required to program a robot so that it could detect items using a sensor system.  </h7>
+        </div>
+
+        <div class="projek-item">
+            <img src="img/pameran game.jpeg" alt="Projek 2" class="all">
+            <div class="game"></div>
+            <h4 class="game">Game Exhibition </h4>
+            <h7>It was our final project where we were required to make a game, and my colleague and I used Unity. </h7>
+        </div>
+
+        <div class="projek-item">
+            <img src="img/jagoit.png" alt="Projek 3" class="all">
+            <h4 class="jago">Talent Pool</h4>
+            <h7>Our school collaborated with a company, and we were tasked with creating an application that could manage job applicant data effectively. </h7>
+        </div>
+
+        <div class="projek-item">
+            <img src="img/diigtalent.png" alt="Projek 4" class="all">
+            <h4 class="kominfo">Digitalent</h4>
+            <h7>This time we were given training by KOMINFO where we learned a new programming language called java. </h7>
+        </div>
+    </div>
+</section>
+
+
+ <!--PAGEEEEEEEEEE EMPAAAAAAAAAAATTTTTT-->
+ <section class="skills" id="skills"><br><br><br>
+    <h3 class="tools">Tools That I Use </h3>
+    <div class="hr2"></div>
+
+    
+        <div class="skills-container">
+            <div class="skills-grid">
+              <h4 class="fe">Front End Tools</h4>
+                <div class="skill-item">
+                    <img src="img/html.png" alt="HTML" class="ngh">
+                    <p>HTML</p>
+                </div>
+                <div class="skill-item">
+                    <img src="img/css.png" alt="CSS" class="ngh">
+                    <p>CSS</p>
+                </div>
+
+                <div class="skill-item">
+                    <img src="img/js.png" alt="canva"class="ngh">
+                    <p>Javascript</p>
+                </div>
+               
+
+               <!----> 
+                <h3 class="be">Back End Tools</h3>
+                <div class="skill-itembe">
+                    <img src="img/laravel.png" alt="Laravel">
+                    <p>Laravel</p>
+                </div>
+    
+                <!-- Baris kedua: 3 gambar -->
+                <div class="skill-itembe">
+                    <img src="img/php.jpeg" alt="php">
+                    <p>PHP</p>
+                </div>
+               
+                
+    
+                <!-- Gambar terakhir di tengah -->
+           
+            </div>
+        </div>
+    </section>
+</body>
+    
